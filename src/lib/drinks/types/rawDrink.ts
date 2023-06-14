@@ -46,7 +46,7 @@ export default interface RawDrink {
   strMeasure13: string | null;
   strMeasure14: string | null;
   strMeasure15: string | null;
-  strImageSource: string | null;
+  strImageSource: string;
   strImageAttribution: string | null;
   strCreativeCommonsConfirmed: string | null;
   dateModified: string | null;
