@@ -39,9 +39,9 @@ export default async function DrinkPage({ params }: DrinkPageProps) {
   return (
     <div>
       <DrinkImage drink={drink} />
-      {drink.name}
+      <p>{drink.name}</p>
       <PieChart data={data} />
-      {drink.instructions}
+      <p>{drink.instructions}</p>
     </div>
   );
 }
