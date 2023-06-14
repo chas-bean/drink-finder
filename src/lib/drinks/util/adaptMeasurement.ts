@@ -32,6 +32,6 @@ export default function adaptMeasurement(measure: string): Measurement | null {
 
   return {
     teaspoons,
-    text: measure,
+    text: measure.trimEnd(),
   };
 }
