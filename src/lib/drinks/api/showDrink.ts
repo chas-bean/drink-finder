@@ -21,5 +21,7 @@ export default async function showDrink({
   const body: ShowDrinkResponse = await response.json();
   const rawDrink = (body.drinks || []).at(0);
 
+  console.log(rawDrink);
+
   return rawDrink ? adaptDrink(rawDrink) : null;
 }

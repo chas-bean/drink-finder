@@ -50,7 +50,7 @@ export default async function DrinkPage({ params }: DrinkPageProps) {
       >
         {drink.name}
       </p>
-      <PieChart data={data} title="Ingredients (Tsp)" />
+      <PieChart data={data} title="Ingredients" />
       <p className="mb-24 px-16 text-base">{drink.instructions}</p>
     </main>
   );

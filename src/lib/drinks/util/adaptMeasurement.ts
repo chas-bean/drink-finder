@@ -1,13 +1,23 @@
 import Measurement from "../types/measurement";
 
 const tspConversionTable = {
+  cl: 2.02884,
   oz: 1 / 0.166667,
+  part: 1,
+  parts: 1,
+  shot: 9,
+  shots: 9,
 };
 
 export default function adaptMeasurement(measure: string): Measurement | null {
   let symbols = measure.trimEnd().split(" ").reverse();
 
-  const [unit] = symbols.splice(0, 1).map((u) => u.trim());
+  // @note Some recipes don't include units, default for those
+  if (symbols.length === 1) {
+    symbols.unshift("oz");
+  }
+
+  const [unit] = symbols.splice(0, 1).map((u) => u.trim().toLowerCase());
 
   const conversionFactor =
     tspConversionTable[unit as keyof typeof tspConversionTable];
