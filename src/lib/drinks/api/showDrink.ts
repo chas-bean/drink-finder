@@ -1,12 +1,9 @@
 import Drink from "../types/drink";
+import RawDrink from "../types/rawDrink";
+import adaptDrink from "../util/adaptDrink";
 
 interface ShowDrinkResponse {
-  drinks:
-    | {
-        idDrink: string;
-        strDrink: string;
-      }[]
-    | null;
+  drinks: RawDrink[] | null;
 }
 
 export default async function showDrink({
@@ -22,12 +19,7 @@ export default async function showDrink({
   );
 
   const body: ShowDrinkResponse = await response.json();
-  const drink = (body.drinks || []).at(0);
+  const rawDrink = (body.drinks || []).at(0);
 
-  return drink
-    ? {
-        id: drink.idDrink,
-        name: drink.strDrink,
-      }
-    : null;
+  return rawDrink ? adaptDrink(rawDrink) : null;
 }

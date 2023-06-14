@@ -1,12 +1,9 @@
 import Drink from "../types/drink";
+import RawDrink from "../types/rawDrink";
+import adaptDrink from "../util/adaptDrink";
 
 interface SearchDrinksResponse {
-  drinks:
-    | {
-        idDrink: string;
-        strDrink: string;
-      }[]
-    | null;
+  drinks: RawDrink[] | null;
 }
 
 export default async function searchDrinks({
@@ -25,10 +22,7 @@ export default async function searchDrinks({
   );
 
   const body: SearchDrinksResponse = await response.json();
-  const drinks = body.drinks || [];
+  const rawDrinks = body.drinks || [];
 
-  return drinks.map((drink) => ({
-    id: drink.idDrink,
-    name: drink.strDrink,
-  }));
+  return rawDrinks.map(adaptDrink);
 }

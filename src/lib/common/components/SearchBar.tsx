@@ -3,9 +3,9 @@
 import { InputHTMLAttributes, useState, useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
+interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-export default function SearchBar(props: SearchInputProps) {
+export default function SearchBar(props: SearchBarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams()!;
