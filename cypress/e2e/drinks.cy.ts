@@ -38,4 +38,17 @@ describe("drinks", () => {
     cy.get("div").children().should("contain", "Blue Margarita");
   });
 
+  it("shows a single drink", () => {
+    cy.visit("http://localhost:3000/drinks?q=Mar");
+
+    // Initial page state
+    cy.get("input").should("contain.value", "Mar");
+    cy.get("div").should("not.be.empty");
+
+    // Action
+    cy.get("div").children().first().click();
+
+    // Expectations
+    cy.url().should("equal", "http://localhost:3000/drinks/11007"); // @todo Should be mock ID
+  });
 });
