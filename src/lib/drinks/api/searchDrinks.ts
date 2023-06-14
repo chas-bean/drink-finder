@@ -15,9 +15,6 @@ export default async function searchDrinks({
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`,
     {
       cache: "no-cache",
-      next: {
-        revalidate: 60,
-      },
     }
   );
 
