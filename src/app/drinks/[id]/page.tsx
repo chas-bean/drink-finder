@@ -1,5 +1,6 @@
 import PieChart from "@/lib/common/components/PieChart";
 import showDrink from "@/lib/drinks/api/showDrink";
+import DrinkImage from "@/lib/drinks/components/DrinkImage";
 import { Metadata } from "next";
 
 interface DrinkPageProps {
@@ -37,8 +38,10 @@ export default async function DrinkPage({ params }: DrinkPageProps) {
 
   return (
     <div>
-      {JSON.stringify(drink)}
+      <DrinkImage drink={drink} />
+      {drink.name}
       <PieChart data={data} />
+      {drink.instructions}
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default interface RawDrink {
   strIBA: string | null;
   strAlcoholic: string | null;
   strGlass: string | null;
-  strInstructions: string | null;
+  strInstructions: string;
   strInstructionsES: string | null;
   strInstructionsDE: string | null;
   strInstructionsFR: string | null;
@@ -46,7 +46,7 @@ export default interface RawDrink {
   strMeasure13: string | null;
   strMeasure14: string | null;
   strMeasure15: string | null;
-  strImageSource: string;
+  strImageSource: string | null;
   strImageAttribution: string | null;
   strCreativeCommonsConfirmed: string | null;
   dateModified: string | null;

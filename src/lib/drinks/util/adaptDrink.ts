@@ -25,8 +25,9 @@ export default function adaptDrink(raw: RawDrink): Drink {
 
   return {
     id: raw.idDrink,
-    imageUrl: raw.strImageSource,
+    imageUrl: raw.strDrinkThumb,
     ingredients,
+    instructions: raw.strInstructions,
     name: raw.strDrink,
   };
 }
