@@ -1,11 +1,21 @@
-import SearchInput from "../common/components/SearchInput";
-import DrinkList from "./components/DrinkList";
+import { Suspense } from "react";
 
-export default async function DrinksPage() {
+import SearchBar from "@/lib/common/components/SearchBar";
+import DrinkList from "@/lib/drinks/components/DrinkList";
+
+interface DrinksPageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default async function DrinksPage({ searchParams }: DrinksPageProps) {
+  const query = (searchParams["q"] as string) || "";
+
   return (
-    <>
-      <SearchInput placeholder="Find a drink" />
-      <DrinkList />
-    </>
+    <main>
+      <SearchBar placeholder="Find a drink" />
+      <Suspense fallback={<div>Loading drinks...</div>}>
+        <DrinkList query={query} />
+      </Suspense>
+    </main>
   );
 }
