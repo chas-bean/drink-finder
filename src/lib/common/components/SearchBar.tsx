@@ -25,14 +25,15 @@ export default function SearchBar(props: SearchBarProps) {
   };
 
   return (
-    <div>
+    <>
       <input
+        aria-label="Type to search drinnks"
         onChange={(e) => handleChange(e.target.value)}
         type="search"
         value={text}
         {...props}
       />
-      {isPending && <span> Searching...</span>}
-    </div>
+      {/* {isPending && <span className=""> Searching...</span>} */}
+    </>
   );
 }

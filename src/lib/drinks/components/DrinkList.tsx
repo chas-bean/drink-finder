@@ -9,10 +9,21 @@ export default async function DrinkList({ query = "" }: DrinkListProps) {
   const drinks = await searchDrinks({ query });
 
   return (
-    <div>
+    <ul className="list-none">
       {drinks.map((drink) => {
-        return <DrinkListItem key={drink.id} drink={drink} />;
+        return (
+          <DrinkListItem
+            key={drink.id}
+            // @fix TailwindCSS is not fully working in part of DOM tree
+            style={{
+              height: "60px",
+              marginBottom: "4px",
+              padding: "4px 16px",
+            }}
+            drink={drink}
+          />
+        );
       })}
-    </div>
+    </ul>
   );
 }
