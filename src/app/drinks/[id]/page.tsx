@@ -26,7 +26,7 @@ export default async function DrinkPage({ params }: DrinkPageProps) {
     return null;
   }
 
-  let data: (string | number)[][] = [["Ingredient", "Tablespoons"]];
+  let data: (string | number)[][] = [["Ingredient", "Tsp"]];
 
   for (let i = 0; i < drink.ingredients.length; i++) {
     const ingredient = drink.ingredients[i];
