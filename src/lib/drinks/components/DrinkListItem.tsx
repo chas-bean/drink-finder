@@ -17,6 +17,7 @@ export default function DrinkListItem({ drink, ...rest }: DrinkListItemProps) {
         <DrinkImage
           drink={drink}
           height={40}
+          priority
           style={{ borderRadius: "100%", marginRight: "16px" }}
           width={40}
         />
