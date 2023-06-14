@@ -4,18 +4,26 @@ import Chart from "react-google-charts";
 
 interface PieChartProps {
   data: (string | number)[][];
+  height?: string;
+  title: string;
+  width?: string;
 }
 
-export default function PieChart({ data }: PieChartProps) {
+export default function PieChart({
+  data,
+  height = "400px",
+  title,
+  width = "100%",
+}: PieChartProps) {
   return (
     <Chart
       chartType="PieChart"
       data={data}
       options={{
-        title: "Ingredients (Tsp)",
+        title,
       }}
-      width={"100%"}
-      height={"400px"}
+      height={height}
+      width={width}
     />
   );
 }

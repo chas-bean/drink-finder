@@ -37,11 +37,21 @@ export default async function DrinkPage({ params }: DrinkPageProps) {
   }
 
   return (
-    <div>
-      <DrinkImage drink={drink} />
-      <p>{drink.name}</p>
-      <PieChart data={data} />
-      <p>{drink.instructions}</p>
-    </div>
+    <main className="bg-white container flex flex-col max-w-md min-h-screen mx-auto">
+      <DrinkImage
+        drink={drink}
+        height={160}
+        width={160}
+        style={{ alignSelf: "center", borderRadius: "100%", marginTop: "30px" }}
+      />
+      <p
+        className="text-2xl"
+        style={{ alignSelf: "center", paddingTop: "8px" }}
+      >
+        {drink.name}
+      </p>
+      <PieChart data={data} title="Ingredients (Tsp)" />
+      <p className="mb-24 px-16 text-base">{drink.instructions}</p>
+    </main>
   );
 }

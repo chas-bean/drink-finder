@@ -11,7 +11,7 @@ export default async function DrinksPage({ searchParams }: DrinksPageProps) {
   const query = (searchParams["q"] as string) || "";
 
   return (
-    <main className="container flex flex-col max-w-md min-h-screen mx-auto pt-8">
+    <main className="container flex flex-col max-w-md mb-16 min-h-screen mx-auto pt-8">
       <SearchBar
         autoFocus
         className="mb-4 p-2 px-4 rounded-md w-full"
